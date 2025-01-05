@@ -1,0 +1,42 @@
+﻿[
+    {
+        "name": "events",
+        "prompt": "What happened that you want to remember?",
+        "type": "str"
+    },
+    {
+        "name": "insights",
+        "prompt": "What did you learn or understand today?",
+        "type": "str"
+    },
+    {
+        "name": "future",
+        "prompt": "What ideas, wishes or questions do you have for the future?",
+        "type": "str"
+    },
+    {
+        "name": "gratitude",
+        "prompt": "What are you grateful for?",
+        "type": "str"
+    },
+    {
+        "name": "exercise",
+        "prompt": "What kind of exercise did you do today? w(alking), g(ym), b(oth) or n(one)?",
+        "type": "choice",
+        "options": ["w", "g", "b", "n"]
+    },
+    {
+        "name": "weight",
+        "prompt": "What is your weight today (in kg)?",
+        "type": "float",
+        "min": 10.0,
+        "max": 250.0
+    },
+    {
+        "name": "mood",
+        "prompt": "How do you feel today on a scale from 1 (meh) to 10 (yeah!)?",
+        "type": "int",
+        "min": 1,
+        "max": 10
+    }
+]

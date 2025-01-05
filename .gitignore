@@ -1,0 +1,18 @@
+﻿# mypy cache
+.mypy_cache/
+
+# pycache
+*/__pycache__/
+
+# only local files
+logger.py
+
+# personal information
+data/diary.json
+
+# under development
+scripts/complete_diary.py
+scripts/edit_entry.py
+scripts/read_diary.py
+scripts/settings.py
+scripts/view_stats.py
