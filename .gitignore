@@ -19,3 +19,4 @@ scripts/edit_entry.py
 scripts/read_diary.py
 scripts/settings.py
 scripts/view_stats.py
+data/songs_history.json
