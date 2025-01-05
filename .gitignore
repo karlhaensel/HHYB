@@ -4,9 +4,6 @@
 # pycache
 */__pycache__/
 
-# only local files
-logger.py
-
 # personal information
 data/diary.json
 
