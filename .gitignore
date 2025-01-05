@@ -10,6 +10,9 @@ logger.py
 # personal information
 data/diary.json
 
+# temporary changing file
+data/songs_history.json
+
 # under development
 scripts/complete_diary.py
 scripts/edit_entry.py
