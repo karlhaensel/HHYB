@@ -16,7 +16,10 @@ def get_songdata(path: str) -> list[dict[str, str]]:
 
 def main() -> None:
     songs: list[dict[str, str]] = get_songdata(SONG_FILE)
-    songs_history: list[dict[str, str]] = get_songdata(SONG_HISTORY_FILE)
+    try:
+        songs_history: list[dict[str, str]] = get_songdata(SONG_HISTORY_FILE)
+    except FileNotFoundError:
+        songs_history = []  # history file will be created later
     if songs == songs_history:  # CAVE: both have to be sorted by title!
         songs_history = []  # reset history
     song: dict[str, str] = choice(songs)
