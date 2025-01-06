@@ -52,6 +52,7 @@ def get_entry(
 
 
 def main() -> None:
+    tools.backup_data("diary")
     completely_new: bool = False
     try:
         with open(DIARY_FILE, "r", encoding="utf-8") as file:
