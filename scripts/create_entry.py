@@ -54,6 +54,7 @@ def get_entry(
 def main() -> None:
     tools.backup_data("diary")
     completely_new: bool = False
+    enter_today: bool = True
     try:
         with open(DIARY_FILE, "r", encoding="utf-8") as file:
             diary_data = json.load(file)
@@ -77,17 +78,19 @@ def main() -> None:
                 diary_data.pop()
             else:
                 print("Okay, no changes it is.")
-                tools.exit_program(PROGRAM)
-    print("Please answer the following prompts for your diary. Skip with '-'.")
-    new_entry: dict[str, str | int | float] = {}
-    new_entry["date"] = today
-    with open(CATEGORY_FILE, "r", encoding="utf-8-sig") as file:
-        cats = json.load(file)
-    for cat in cats:
-        new_entry[cat["name"]] = get_entry(cat)
-    diary_data.append(new_entry)
-    with open(DIARY_FILE, "w", encoding="utf-8") as file:
-        json.dump(diary_data, file, ensure_ascii=False, indent=JSON_INDENT)
+                enter_today = False
+    if enter_today:
+        print("Please answer the following prompts for your diary.",
+              "Skip with '-'.")
+        new_entry: dict[str, str | int | float] = {}
+        new_entry["date"] = today
+        with open(CATEGORY_FILE, "r", encoding="utf-8-sig") as file:
+            cats = json.load(file)
+        for cat in cats:
+            new_entry[cat["name"]] = get_entry(cat)
+        diary_data.append(new_entry)
+        with open(DIARY_FILE, "w", encoding="utf-8") as file:
+            json.dump(diary_data, file, ensure_ascii=False, indent=JSON_INDENT)
 
 
 if __name__ == '__main__':

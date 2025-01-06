@@ -17,6 +17,7 @@ def main() -> bool:
     choice: str = input()
     for item in MENU:
         if choice == str(item["id"]):
+            tools.reset_terminal()
             globals()[item["script"]].main()
             print("Press Enter to continue to menu.")
             input()
@@ -27,11 +28,15 @@ def main() -> bool:
 
 
 if __name__ == '__main__':
+    tools.reset_terminal()  # starting fresh :)
     print("*** WELCOME TO HHYB, YOUR PERSONAL DIARY! ***")
     print("Let's start with some great music!")
     random_song.main()
+    print("What a loevely start! Continue to menu with Enter.")
+    input()
     # TODO: add random_cat_picture() !!!
     while True:
+        tools.reset_terminal()  # clear terminal before every menu call
         if not main():  # main() caught non-id input -> exit
             break
     tools.exit_program(PROGRAM)
