@@ -9,6 +9,7 @@ PROGRAM: str = "HHYB - Your Diary"
 
 # PROCEDURES
 def main() -> bool:
+    # TODO: Formatierung optimieren
     print("MENU")
     print("What would you like to do? Choose the corresponding number:")
     for item in MENU:
@@ -28,6 +29,7 @@ def main() -> bool:
 
 
 if __name__ == '__main__':
+    # TODO: schoenere Formatierung
     tools.reset_terminal()  # starting fresh :)
     print("*** WELCOME TO HHYB, YOUR PERSONAL DIARY! ***")
     print("Let's start with some great music!")

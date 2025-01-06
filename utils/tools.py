@@ -20,7 +20,8 @@ def backup_data(*args) -> None:
         backup_file(file)
 
 
-# TODO: add restore_data/restore_file and delete_old_backup_data functions
+# TODO: add restore_data/restore_file
+# TODO: add delete_old_backup_data/tidy_backup (remove duplicates e.g.)
 
 
 def reset_terminal() -> None:
