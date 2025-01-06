@@ -5,16 +5,18 @@ from utils.config import MAIN_DIR
 
 
 def backup_file(file) -> str:
-    now: str = datetime.now().strftime("%Y%m%d%H%M%S")
-    base, ext = os.path.splitext(file)
-    file_backup = os.path.join(MAIN_DIR, "backup",
-                               f"{os.path.basename(base)}_{now}{ext}")
+    now: str = datetime.now().strftime("%y%m%d%H%M%S")
+    path_without_ext, ext = os.path.splitext(file)
+    file_backup = os.path.join(
+        MAIN_DIR, "backup",
+        f"{os.path.basename(path_without_ext)}_{now}{ext}")
     return shutil.copy2(file, file_backup)
 
 
 def backup_data(*args) -> None:
+    print(args)
     for dat in args:
-        file = os.path.join(MAIN_DIR, "data", dat, ".json")
+        file = os.path.join(MAIN_DIR, "data", f"{dat}.json")
         backup_file(file)
 
 

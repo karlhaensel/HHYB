@@ -4,7 +4,7 @@
 MAIN_DIR = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..")
     )
-DIARY_FILE: str = os.path.join(MAIN_DIR, "data", "diary_TEST.json")
+DIARY_FILE: str = os.path.join(MAIN_DIR, "data", "diary.json")
 CATEGORY_FILE: str = os.path.join(MAIN_DIR, "data", "cat.json")
 SONG_FILE: str = os.path.join(MAIN_DIR, "data", "songs.json")
 SONG_HISTORY_FILE: str = os.path.join(MAIN_DIR, "data", "songs_history.json")
