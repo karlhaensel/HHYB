@@ -62,6 +62,8 @@ def main() -> None:
         print("ERROR: No diary found. Creating new diary.")
         diary_data = []
         completely_new = True
+        # TODO: set starting date in settings.json
+        # TODO: if there is already one raise error and ask for confirmation
     today = datetime.now().strftime("%Y-%m-%d")
     if not completely_new:
         last_entry_date = diary_data[-1]["date"]

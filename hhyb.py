@@ -9,7 +9,7 @@ PROGRAM: str = "HHYB - Your Diary"
 
 # PROCEDURES
 def main() -> bool:
-    # TODO: Formatierung optimieren
+    # TODO: pretty print
     print("MENU")
     print("What would you like to do? Choose the corresponding number:")
     for item in MENU:
@@ -29,7 +29,7 @@ def main() -> bool:
 
 
 if __name__ == '__main__':
-    # TODO: schoenere Formatierung
+    # TODO: pretty print
     tools.reset_terminal()  # starting fresh :)
     print("*** WELCOME TO HHYB, YOUR PERSONAL DIARY! ***")
     print("Let's start with some great music!")
@@ -37,6 +37,7 @@ if __name__ == '__main__':
     print("What a loevely start! Continue to menu with Enter.")
     input()
     # TODO: add random_cat_picture() !!!
+    # TODO: add random_poem and/or random_quote()
     while True:
         tools.reset_terminal()  # clear terminal before every menu call
         if not main():  # main() caught non-id input -> exit
