@@ -23,11 +23,11 @@ MENU: list[dict[str, int | str]] = [
     #     "text": "See open entries and complete diary",
     #     "script": "complete_diary"
     # },
-    # {
-    #     "id": 3,
-    #     "text": "Edit or delete entry",
-    #     "script": "edit_entry"
-    # },
+    {
+        "id": 3,
+        "text": "Edit or delete entry",
+        "script": "edit_entry"
+    },
     # {
     #     "id": 4,
     #     "text": "Read diary",

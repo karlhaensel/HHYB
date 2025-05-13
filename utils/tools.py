@@ -14,7 +14,6 @@ def backup_file(file) -> str:
 
 
 def backup_data(*args) -> None:
-    print(args)
     for dat in args:
         file = os.path.join(MAIN_DIR, "data", f"{dat}.json")
         backup_file(file)
