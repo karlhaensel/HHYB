@@ -2,8 +2,7 @@
 
 import pytest
 
-from apps.core import ConsoleApp
-from models.menu import MenuItem, MenuHandler
+from apps.core import MenuItem, MenuHandler, ConsoleApp
 
 
 @pytest.fixture
