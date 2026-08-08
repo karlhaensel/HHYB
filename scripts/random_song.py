@@ -1,4 +1,4 @@
-﻿if __name__ != '__main__':
+if __name__ != "__main__":
     import json
     from random import choice
     from utils.config import SONG_FILE, SONG_HISTORY_FILE, JSON_INDENT
@@ -25,17 +25,21 @@ def main() -> None:
     song: dict[str, str] = choice(songs)
     if song not in songs_history:
         songs_history.append(song)
-        print(f"There is your random {song["artist"]} song:",
-              f"\"{song["title"]}\" (from \"{song["from"]}\") <3")
+        print(
+            f"There is your random {song['artist']} song:",
+            f'"{song["title"]}" (from "{song["from"]}") <3',
+        )
         with open(SONG_HISTORY_FILE, "w", encoding="utf-8-sig") as file:
             json.dump(
                 sorted(songs_history, key=lambda x: x["title"]),
-                file, ensure_ascii=False, indent=JSON_INDENT
+                file,
+                ensure_ascii=False,
+                indent=JSON_INDENT,
             )
     else:
         main()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("I am just a module. Please choose me from HHBY's main menu.")
     input()

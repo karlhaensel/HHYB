@@ -1,9 +1,7 @@
-﻿import os
+import os
 
 # GLOBAL CONSTANTS
-MAIN_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..")
-    )
+MAIN_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DIARY_FILE: str = os.path.join(MAIN_DIR, "data", "diary.json")
 CATEGORY_FILE: str = os.path.join(MAIN_DIR, "data", "cat.json")
 SONG_FILE: str = os.path.join(MAIN_DIR, "data", "songs.json")
@@ -13,21 +11,13 @@ NAN: str = "NaN"
 
 # MENU
 MENU: list[dict[str, int | str]] = [
-    {
-        "id": 1,
-        "text": "Create entry for today",
-        "script": "create_entry"
-    },
+    {"id": 1, "text": "Create entry for today", "script": "create_entry"},
     # {
     #     "id": 2,
     #     "text": "See open entries and complete diary",
     #     "script": "complete_diary"
     # },
-    {
-        "id": 3,
-        "text": "Edit or delete entry",
-        "script": "edit_entry"
-    },
+    {"id": 3, "text": "Edit or delete entry", "script": "edit_entry"},
     # {
     #     "id": 4,
     #     "text": "Read diary",
@@ -43,9 +33,5 @@ MENU: list[dict[str, int | str]] = [
     #     "text": "Edit settings",
     #     "script": "settings"
     # },
-    {
-        "id": 7,
-        "text": "Get another random song <3",
-        "script": "random_song"
-    }
+    {"id": 7, "text": "Get another random song <3", "script": "random_song"},
 ]

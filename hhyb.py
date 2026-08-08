@@ -1,4 +1,4 @@
-﻿from scripts import random_song, create_entry
+from scripts import random_song
 from utils import tools
 from utils.config import MENU
 
@@ -13,7 +13,7 @@ def main() -> bool:
     print("MENU")
     print("What would you like to do? Choose the corresponding number:")
     for item in MENU:
-        print(f"({item["id"]}) : {item["text"]}")
+        print(f"({item['id']}) : {item['text']}")
     print("Enter any other character(s) to exit.")
     choice: str = input()
     for item in MENU:
@@ -28,7 +28,7 @@ def main() -> bool:
         return False
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # TODO: pretty print
     tools.reset_terminal()  # starting fresh :)
     print("*** WELCOME TO HHYB, YOUR PERSONAL DIARY! ***")

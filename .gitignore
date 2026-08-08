@@ -22,3 +22,6 @@ scripts/view_stats.py
 
 # IDE specific files
 .idea/
+
+# venv
+.venv/

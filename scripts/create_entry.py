@@ -1,6 +1,7 @@
-﻿import json
+import json
 from datetime import datetime, timedelta
-if __name__ != '__main__':
+
+if __name__ != "__main__":
     from utils.config import CATEGORY_FILE, DIARY_FILE, NAN, JSON_INDENT
     from utils import tools
 
@@ -10,8 +11,7 @@ PROGRAM: str = "HHYB - Create Entry"
 
 
 # FUNCTIONS
-def get_entry(
-        cat: dict[str, str | list[str] | int | float]) -> str | int | float:
+def get_entry(cat: dict[str, str | list[str] | int | float]) -> str | int | float:
     answer: str = input(cat["prompt"])
     if (answer == "-") and (cat["type"] in ["int", "float"]):
         return NAN
@@ -20,8 +20,10 @@ def get_entry(
             if (answer in cat["options"]) or (answer == "-"):
                 return answer
             else:
-                print(f"ERROR: Please choose one of the following options",
-                      f"(or \"-\" to skip): {cat["options"]}")
+                print(
+                    "ERROR: Please choose one of the following options",
+                    f'(or "-" to skip): {cat["options"]}',
+                )
                 return get_entry(cat)
         case "int":
             try:
@@ -32,8 +34,10 @@ def get_entry(
             if cat["min"] <= number <= cat["max"]:
                 return number
             else:
-                print(f"ERROR: Please enter an integer between {cat['min']}",
-                      f"and {cat['max']}.")
+                print(
+                    f"ERROR: Please enter an integer between {cat['min']}",
+                    f"and {cat['max']}.",
+                )
                 return get_entry(cat)
         case "float":
             try:
@@ -44,8 +48,10 @@ def get_entry(
             if cat["min"] <= number <= cat["max"]:
                 return number
             else:
-                print(f"ERROR: Please enter a number between {cat['min']}",
-                      f"and {cat['max']}.")
+                print(
+                    f"ERROR: Please enter a number between {cat['min']}",
+                    f"and {cat['max']}.",
+                )
                 return get_entry(cat)
         case _:  # str (default)
             return answer
@@ -69,8 +75,10 @@ def main() -> None:
         last_entry_date = diary_data[-1]["date"]
         yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
         if last_entry_date < yesterday:
-            print("You did not enter something yesterday. Someday there will",
-                  "be an option to edit now. But not yet so...(sorry!)")
+            print(
+                "You did not enter something yesterday. Someday there will",
+                "be an option to edit now. But not yet so...(sorry!)",
+            )
             # TODO: go to edit_entry or sth like that
         elif last_entry_date == today:
             print("You already entered a diary entry for today:")
@@ -82,8 +90,7 @@ def main() -> None:
                 print("Okay, no changes it is.")
                 enter_today = False
     if enter_today:
-        print("Please answer the following prompts for your diary.",
-              "Skip with '-'.")
+        print("Please answer the following prompts for your diary.", "Skip with '-'.")
         new_entry: dict[str, str | int | float] = {}
         new_entry["date"] = today
         with open(CATEGORY_FILE, "r", encoding="utf-8-sig") as file:
@@ -95,6 +102,6 @@ def main() -> None:
             json.dump(diary_data, file, ensure_ascii=False, indent=JSON_INDENT)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("I am just a module. Please choose me from HHBY's main menu.")
     input()

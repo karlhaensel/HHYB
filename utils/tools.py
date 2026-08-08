@@ -1,4 +1,4 @@
-﻿import os
+import os
 import shutil
 from datetime import datetime
 from utils.config import MAIN_DIR
@@ -8,8 +8,8 @@ def backup_file(file) -> str:
     now: str = datetime.now().strftime("%y%m%d%H%M%S")
     path_without_ext, ext = os.path.splitext(file)
     file_backup = os.path.join(
-        MAIN_DIR, "backup",
-        f"{os.path.basename(path_without_ext)}_{now}{ext}")
+        MAIN_DIR, "backup", f"{os.path.basename(path_without_ext)}_{now}{ext}"
+    )
     return shutil.copy2(file, file_backup)
 
 
@@ -31,6 +31,6 @@ def reset_terminal() -> None:
 
 
 def exit_program(program: str) -> None:
-    print(f"Thank you for using \"{program}\" and goodbye!")
+    print(f'Thank you for using "{program}" and goodbye!')
     input()
     exit()

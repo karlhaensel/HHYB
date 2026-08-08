@@ -1,0 +1,15 @@
+annotated-types==0.8.0
+cfgv==3.5.0
+distlib==0.4.3
+filelock==3.32.2
+identify==2.6.19
+nodeenv==1.10.0
+platformdirs==4.11.1
+pre_commit==4.6.1
+pydantic==2.13.4
+pydantic_core==2.46.4
+python-discovery==1.5.1
+PyYAML==6.0.3
+typing-inspection==0.4.2
+typing_extensions==4.16.0
+virtualenv==21.7.3
