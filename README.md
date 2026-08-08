@@ -6,11 +6,11 @@
 - which may also have influenced its name ;)
 
 ## How to use?
-1. Install [Python](https://www.python.org/downloads/) 3.11 (if not already satisfied)
+1. Install [Python](https://www.python.org/downloads/) 3.9 or higher (if not already satisfied)
 2. Clone the repository: `git clone https://github.com/karlhaensel/na2mc`
 3. Create a virtual environment: `python -m  venv .venv`
 4. Activate the virtual environment:
-    - on Linux/ macOS: `source .venv/bn/activate`
+    - on Linux/ macOS: `source .venv/bin/activate`
     - on Windows(CMD): `.venv\Scripts\activate`
     - on Windows (PowerShell): `.venv\Scripts\Activate.ps1`
 5. Install dependencies: `pip install -r requirements.txt`
