@@ -52,7 +52,6 @@ def test_app_cls(test_menu_handler: MenuHandler):
             self, calling_app: ConsoleApp | None, exit_to_calling_app: bool
         ) -> None:
             """Initialise test console app."""
-            self._runs: list[str] = []
             super().__init__("Test App", calling_app, exit_to_calling_app)
 
         @property
@@ -71,22 +70,18 @@ def test_app_cls(test_menu_handler: MenuHandler):
                     "Cannot exit to calling app because exit_to_calling_app is False."
                 )
             print("Exit to calling app.")
-            self._runs.append("_exit_to_calling_app")
 
         def _prepare_for_final_exit(self) -> None:
             """Prepare for final exit."""
             print("Saving everything important and stuff.")
-            self._runs.append("_prepare_for_final_exit")
 
         def _test_method(self) -> None:
             """Just some test method."""
-            print("Running test method.")
-            self._runs.append("test_method")
+            print(f"Running _test_method for {self.__class__.__name__}.")
 
         def other_test_method(self) -> None:
             """Just some other test method."""
-            print("Running other test method.")
-            self._runs.append("other_test_method")
+            print(f"Running other_test_method for {self.__class__.__name__}.")
 
     return TestApp
 

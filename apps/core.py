@@ -12,7 +12,7 @@ class MenuItem(BaseModel):
     """Menu Item class for console apps."""
 
     menu_id: int = Field(ge=0)
-    description: str
+    description: str = Field(min_length=1)
     call_attr: str = Field(pattern="^[a-z_]+$")
 
     def check_call_attr_for_app_object(self, app: ConsoleApp) -> None:
@@ -124,8 +124,8 @@ class ConsoleApp(ABC):
         self.exit_to_calling_app = exit_to_calling_app
         self.menu_handler.check_app_has_attrs(self)
 
-    @abstractmethod
     @property
+    @abstractmethod
     def menu_handler(self) -> MenuHandler:
         """Get the menu handler for the specific console app."""
         ...
