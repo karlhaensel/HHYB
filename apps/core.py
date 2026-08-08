@@ -14,12 +14,12 @@ class ConsoleApp(ABC):
     MAIN_APP_NAME = "HHYB - Your Diary"
 
     def __init__(
-        self, app_name: str, parent_app: ConsoleApp | None, exit_to_parent: bool
+        self, app_name: str, calling_app: ConsoleApp | None, exit_to_calling_app: bool
     ) -> None:
         """Initialise the console app."""
         self.app_name = app_name
-        self.parent_app = parent_app
-        self.exit_to_parent = exit_to_parent
+        self.parent_app = calling_app
+        self.exit_to_parent = exit_to_calling_app
         self.menu_handler.check_app_has_attrs(self)
 
     @abstractmethod
@@ -58,8 +58,8 @@ class ConsoleApp(ABC):
         self._run()
 
     @abstractmethod
-    def _exit_to_parent(self) -> None:
-        """Exit the console app to their parent."""
+    def _exit_to_calling_app(self) -> None:
+        """Exit the console app to their calling app."""
         ...
 
     @abstractmethod
@@ -70,7 +70,7 @@ class ConsoleApp(ABC):
     def exit(self) -> None:
         """Exit the console app."""
         if self.exit_to_parent:
-            self._exit_to_parent()
+            self._exit_to_calling_app()
         else:
             self._prepare_for_final_exit()
             print(f"Thank you for using {self.MAIN_APP_NAME} and goodbye!")
