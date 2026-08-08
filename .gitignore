@@ -13,13 +13,6 @@ data/songs_history.json
 # backup files for diary
 backup/
 
-# under development
-scripts/complete_diary.py
-scripts/edit_entry.py
-scripts/read_diary.py
-scripts/settings.py
-scripts/view_stats.py
-
 # IDE specific files
 .idea/
 
