@@ -18,8 +18,12 @@ class ConsoleApp(ABC):
     ) -> None:
         """Initialise the console app."""
         self.app_name = app_name
-        self.parent_app = calling_app
-        self.exit_to_parent = exit_to_calling_app
+        self.calling_app = calling_app
+        if self.calling_app is None and exit_to_calling_app:
+            raise ValueError(
+                "Cannot set exit_to_calling_app to True if no calling app is set!"
+            )
+        self.exit_to_calling_app = exit_to_calling_app
         self.menu_handler.check_app_has_attrs(self)
 
     @abstractmethod
@@ -69,7 +73,7 @@ class ConsoleApp(ABC):
 
     def exit(self) -> None:
         """Exit the console app."""
-        if self.exit_to_parent:
+        if self.exit_to_calling_app:
             self._exit_to_calling_app()
         else:
             self._prepare_for_final_exit()
