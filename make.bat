@@ -7,7 +7,7 @@ echo Unknown command: %1
 goto end
 
 :coverage
-coverage run -m pytest
+coverage run -m --omit=tests/* pytest
 coverage report
 coverage html
 goto end
