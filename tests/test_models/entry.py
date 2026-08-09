@@ -16,6 +16,9 @@ class EntryFieldType(StrEnum):
     SCALE = "scale"
 
 
+FIELD_TYPE_FIELD = "field_type"
+
+
 class EntryField(BaseModel):
     """Entry field for diary entries."""
 
@@ -26,12 +29,12 @@ class EntryField(BaseModel):
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "EntryField":
         """Create an EntryField from a dictionary."""
-        if cls.field_type.name not in data:
+        if FIELD_TYPE_FIELD not in data:
             raise ValueError(
-                f"Field '{cls.field_type.name}' is required! Only got fields "
+                f"Field '{FIELD_TYPE_FIELD}' is required! Only got fields "
                 f"{[str(k) for k in data.keys()]} in given dictionary."
             )
-        model_cls = FIELD_TYPE_TO_MODEL[EntryFieldType(data[cls.field_type.name])]
+        model_cls = FIELD_TYPE_TO_MODEL[EntryFieldType(data[FIELD_TYPE_FIELD])]
         return model_cls(**data)
 
     @property
