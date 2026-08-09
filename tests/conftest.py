@@ -2,7 +2,8 @@
 
 import pytest
 
-from apps.core import MenuItem, MenuHandler, ConsoleApp
+from apps.core import SubApp, ConsoleApp
+from models.menu import MenuItem, MenuHandler
 
 
 @pytest.fixture
@@ -45,14 +46,14 @@ def test_menu_handler(
 def test_app_cls(test_menu_handler: MenuHandler):
     """Return TestApp class."""
 
-    class TestApp(ConsoleApp):
+    class TestApp(SubApp):
         """Class for testing console apps."""
 
         def __init__(
-            self, calling_app: ConsoleApp | None, exit_to_calling_app: bool
+            self, app_handler: ConsoleApp | None, always_exit_to_handler: bool
         ) -> None:
             """Initialise test console app."""
-            super().__init__("Test App", calling_app, exit_to_calling_app)
+            super().__init__("Test App", app_handler, always_exit_to_handler)
 
         @property
         def menu_handler(self) -> MenuHandler:
@@ -63,11 +64,11 @@ def test_app_cls(test_menu_handler: MenuHandler):
             """Run the test console app."""
             self.menu_handler.run(self)
 
-        def _exit_to_calling_app(self) -> None:
+        def _exit_to_app_handler(self) -> None:
             """Exit the calling app."""
-            if not self.exit_to_calling_app:
+            if not self.always_exit_to_handler:
                 raise ValueError(
-                    "Cannot exit to calling app because exit_to_calling_app is False."
+                    "Cannot exit to app handler because always_exit_to_handler==False."
                 )
             print("Exit to calling app.")
 
