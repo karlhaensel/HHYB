@@ -4,7 +4,7 @@ import datetime as dt
 
 from pydantic import BaseModel, Field
 
-from tests.test_models.entry import Entry
+from models.entry import Entry
 
 
 class Diary(BaseModel):
