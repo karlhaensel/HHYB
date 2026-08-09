@@ -175,30 +175,3 @@ class Entry(BaseModel):
     created_at: dt.datetime
     last_updated_at: dt.datetime
     fields: list[EntryField] = Field(min_length=1)
-
-
-class Diary(BaseModel):
-    """Base diary model for HHYB."""
-
-    started_at: dt.datetime
-    entries: list[Entry] = Field(min_length=1)
-
-
-class CurrentDiary(Diary):
-    """Current diary model for HHYB."""
-
-    current_last_entry: dt.date
-    last_updated_at: dt.datetime
-
-
-class BackupDiary(CurrentDiary):
-    """Backup diary model for HHYB."""
-
-    last_backup_at: dt.datetime
-
-
-class ArchivedDiary(Diary):
-    """Archived diary model for HHYB."""
-
-    last_entry: dt.date
-    archived_at: dt.datetime
